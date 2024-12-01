@@ -1,13 +1,10 @@
 import express from "express";
+import { listarPosts } from "../controllers/postsControllers.js";
 
 const routes = (app) =>{
     app.use(express.json());
-    
     //criar uma rota
-    app.get("/posts" , async (req , res) => {
-        const posts = await getTodosPosts();
-        res.status(200).json(posts);
-    });
+    app.get("/posts" , listarPosts);
 };
 
 
