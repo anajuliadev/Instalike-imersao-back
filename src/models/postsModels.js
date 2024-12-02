@@ -6,9 +6,14 @@ export async function getTodosPosts() {
     const db = conexao.db("Imersao-instabytes")
     const colecao = db.collection("posts")
 
-    return colecao.insertOne(novoPost);
+    return colecao.find({}).toArray(); // Recupera todos os posts
+
 };
 
 export async function criarPost(novoPost) {
+    const db = conexao.db("Imersao-instabytes")
+    const colecao = db.collection("posts")
+
+    return colecao.insertOne(novoPost);
     
 }
